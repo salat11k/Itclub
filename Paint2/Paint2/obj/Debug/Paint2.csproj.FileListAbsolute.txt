@@ -1,0 +1,5 @@
+D:\Training\Paint2\Paint2\obj\Debug\Paint2.csproj.AssemblyReference.cache
+D:\Training\Paint2\Paint2\obj\Debug\Paint2.Form1.resources
+D:\Training\Paint2\Paint2\obj\Debug\Paint2.Properties.Resources.resources
+D:\Training\Paint2\Paint2\obj\Debug\Paint2.csproj.GenerateResource.cache
+D:\Training\Paint2\Paint2\obj\Debug\Paint2.csproj.CoreCompileInputs.cache
