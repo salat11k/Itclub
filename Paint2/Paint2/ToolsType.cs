@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Paint2
 {
-    public enum Tools
+    public enum ToolsType
     {
         FreeHand,
         Rectangl,

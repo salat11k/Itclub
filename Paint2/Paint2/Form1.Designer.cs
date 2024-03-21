@@ -33,12 +33,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.r3 = new System.Windows.Forms.RadioButton();
+            this.r2 = new System.Windows.Forms.RadioButton();
+            this.r1 = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -51,6 +54,9 @@
             this.pictureBox1.Size = new System.Drawing.Size(666, 426);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // panel1
             // 
@@ -67,6 +73,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Color";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // numericUpDown1
             // 
@@ -84,12 +91,13 @@
             0,
             0,
             0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.r3);
+            this.groupBox1.Controls.Add(this.r2);
+            this.groupBox1.Controls.Add(this.r1);
             this.groupBox1.Location = new System.Drawing.Point(685, 126);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(103, 91);
@@ -97,38 +105,40 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tools";
             // 
-            // radioButton1
+            // r3
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(44, 17);
-            this.radioButton1.TabIndex = 5;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Pen";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.r3.AutoSize = true;
+            this.r3.Location = new System.Drawing.Point(6, 65);
+            this.r3.Name = "r3";
+            this.r3.Size = new System.Drawing.Size(51, 17);
+            this.r3.TabIndex = 7;
+            this.r3.Text = "Circle";
+            this.r3.UseVisualStyleBackColor = true;
+            this.r3.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
-            // radioButton2
+            // r2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 42);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(68, 17);
-            this.radioButton2.TabIndex = 6;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Rectangl";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.r2.AutoSize = true;
+            this.r2.Location = new System.Drawing.Point(6, 42);
+            this.r2.Name = "r2";
+            this.r2.Size = new System.Drawing.Size(68, 17);
+            this.r2.TabIndex = 6;
+            this.r2.Text = "Rectangl";
+            this.r2.UseVisualStyleBackColor = true;
+            this.r2.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
-            // radioButton3
+            // r1
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 65);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(51, 17);
-            this.radioButton3.TabIndex = 7;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Circle";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.r1.AutoSize = true;
+            this.r1.Checked = true;
+            this.r1.Location = new System.Drawing.Point(6, 19);
+            this.r1.Name = "r1";
+            this.r1.Size = new System.Drawing.Size(44, 17);
+            this.r1.TabIndex = 5;
+            this.r1.TabStop = true;
+            this.r1.Text = "Pen";
+            this.r1.UseVisualStyleBackColor = true;
+            this.r1.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // button2
             // 
@@ -138,6 +148,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -147,6 +158,7 @@
             this.button3.TabIndex = 9;
             this.button3.Text = "Save";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -156,6 +168,11 @@
             this.button4.TabIndex = 10;
             this.button4.Text = "Open";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -187,12 +204,15 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton r1;
+        private System.Windows.Forms.RadioButton r3;
+        private System.Windows.Forms.RadioButton r2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
